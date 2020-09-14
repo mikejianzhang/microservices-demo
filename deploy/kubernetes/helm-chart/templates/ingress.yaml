@@ -6,9 +6,14 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - http:
-      paths:
-      - path: /
-        backend:
-          serviceName: front-end
-          servicePort: 80
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: front-end
+              servicePort: 80
+      host: sockshop.ingka-dt.cn
+  tls:
+    - hosts:
+        - sockshop.ingka-dt.cn
+      secretName: sockshop-ingka-dt-secret
